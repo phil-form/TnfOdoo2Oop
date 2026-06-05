@@ -119,10 +119,14 @@ class RaceClient:
                     self.n_sectors = msg.get("n_sectors", self.n_sectors)
                     now = time.time()
                     prev = {d["name"]: d for d in self.standings}
+                    color_index = {name: i for i, name in enumerate(self.players)}
                     for entry in msg["data"]:
+                        # server sends game-time seconds; wall-clock duration is /60
+                        entry["sector_duration"] = entry.get("sector_duration", 0) / 60
+                        entry["color"] = color_index.get(entry["name"], 0)
                         n = entry["name"]
                         if n in prev and prev[n]["laps"] == entry["laps"]:
-                            entry["update_time"] = prev[n]["update_time"]
+                            entry["update_time"] = prev[n].get("update_time", now)
                         else:
                             entry["update_time"] = now
                     self.standings = msg["data"]
