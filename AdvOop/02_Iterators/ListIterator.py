@@ -18,19 +18,22 @@ class ExampleIterator:
         itr = self.current
 
         if itr >= self.length:
+            # Arrêter le for loop
             raise StopIteration
 
         self.current = itr + 1
 
-        return self.datas[itr]
+        return self.datas[itr - 1]
 
     # if value in Object
     def __contains__(self, value):
         return True if value in self.datas else False
 
+    # val = object[key]
     def __getitem__(self, key):
         return self.datas[key]
 
+    # object[key] = val
     def __setitem__(self, key, value):
         self.datas[key] = value
 

@@ -21,7 +21,7 @@ class ExampleIterator:
 
         self.current = itr + 1
 
-        return self.datas[self.currentKeys[itr]]
+        return self.datas[self.currentKeys[itr - 1]]
 
     # if value in Object
     def __contains__(self, value):

@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 
-
 @dataclass
 class ExampleDataClass:
     name: str

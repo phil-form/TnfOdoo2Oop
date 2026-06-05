@@ -6,7 +6,7 @@ import psycopg2
 
 def retryConnection(retryCount, delayTime):
     def retryDecorator(func):
-        wraps(func)
+        @wraps(func)
         def functionWrapper(*args, **kwargs):
             result = None
             lastExecption = []
@@ -49,3 +49,7 @@ class DbHandler:
                 password = self.dbPassword)
 
         return conn
+
+db_conn = DbHandler("db", "user", "password", "host")
+
+db_conn.getConnection()

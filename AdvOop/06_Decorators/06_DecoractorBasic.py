@@ -1,6 +1,9 @@
+from curses import wrapper
+
+
 def capitalizeString(func):
     def funcWrapper(*args, **kwargs):
-        return func(*args, **kwargs).upper()
+        return str(func(*args, **kwargs)).upper()
     return funcWrapper
 
 @capitalizeString
