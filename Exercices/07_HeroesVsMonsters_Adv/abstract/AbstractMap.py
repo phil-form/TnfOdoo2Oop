@@ -82,7 +82,7 @@ class AbstractMap(IObservable, ABC):
 
     def __getNearestMonster(self):
         for char in self.__characters:
-            if isinstance(char, AbstractMonster) and char.coorX == self.__hero.coorX and char.coorY == self.__hero.coorY:
+            if isinstance(char, AbstractMonster) and char == self.__hero:
                 return char
         return None
 

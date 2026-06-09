@@ -78,6 +78,10 @@ class AbstractCharacter(ABC):
     def __eq__(self, __o: object) -> bool:
         if(isinstance(__o, Coordinate)):
             return self.__coor == __o
+
+        if(isinstance(__o, AbstractCharacter)):
+            return self.__coor == __o.__coor
+
         return False
 
     def __str__(self) -> str:
