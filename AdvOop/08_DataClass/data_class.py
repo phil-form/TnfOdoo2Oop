@@ -8,7 +8,7 @@ class ExampleDataClass:
     def __str__(self):
         return f"Name: {self.name}, Age: {self.age}"
 
-# équivaut à cette class
+# équivaut à cette models
 
 class ExampleDataClass2:
     def __init__(self, name: str, age: int):
@@ -29,7 +29,7 @@ print(example)
 
 # Frozen
 
-# Avec Frozen la class devient immuable.
+# Avec Frozen la models devient immuable.
 @dataclass(frozen=True)
 class LetItGo:
     name: str
